@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
+include_once 'dbh.inc.php';
+include_once 'comment.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +19,11 @@ date_default_timezone_set('Europe/Copenhagen');
     your browser doesn not support the video tag.
     </video>
     <?php
-echo "<form>
+echo "<form action = '".setComments($conn)."'  method = 'post'>
           <input type='hidden ' name = 'uid' value = 'Anonymous'>
-    <input type='hidden ' name = 'date' value = '".date('Y-m-d H:i:s')."'><br>
+    <input type='hidden' name = 'date' value = '".date('Y-m-d H:i:s')."'><br>
     <textarea name = 'message' ></textarea> <br>
-     <button name = 'submit' type = 'submit'>Comment</button>
+     <button name = 'commentSubmit' type = 'submit'>Comment</button>
       </form>";
       ?>
     
