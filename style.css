@@ -18,4 +18,19 @@ button {
   font-family: arial;
   font-weight: 400;
   cursor: pointer;
+  margin-bottom:60px;
+}
+.comment-box {
+  width: 845px;
+  padding: 20px;
+  margin-bottom: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.comment-box p {
+font-family:arial;
+font-size:14px;
+line-height:16px;
+color:#282828;
+font-weight: 100;
 }
