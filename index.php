@@ -2,6 +2,7 @@
 date_default_timezone_set('Europe/Copenhagen');
 include_once 'dbh.inc.php';
 include_once 'comment.inc.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,18 +14,40 @@ include_once 'comment.inc.php';
     <link rel = stylesheet type = 'text/css' href = 'style.css'>
 </head>
 <body>
+    <?php
+    echo"<form method = 'POST' action = '".getLogin($conn)."'>
+        <input type='text'  name = 'uid'>
+        <input type='password' name = 'pwd'>
+        <button type = 'submit' name = 'loginSubmit'>login</button>
+    </form>";
+    echo"<form method = 'POST' action = '".userLogout()."'>
+     <button type = 'submit' name = 'logoutSubmit'>logout</button>
+    </form>";
+
+    if (isset($_SESSION['id'])) {
+        echo "you are logged in !";
+    } else {
+        echo "you aren't logged !";
+    }
+    ?>
+    <br><br>
     <video width = "320"  height = "240" controls>
     <source src = "movie.mp4" type = "video/mp4">
     <source src = "movie.ogg" type = "video/ogg">
     your browser doesn not support the video tag.
     </video>
     <?php
-echo "<form action = '".setComments($conn)."'  method = 'post'>
+     if (isset($_SESSION['id'])) {
+        echo "<form action = '".setComments($conn)."'  method = 'post'>
           <input type='hidden' name = 'uid' value = 'Anonymous'>
     <input type='hidden' name = 'date' value = '".date('Y-m-d H:i:s')."'><br>
     <textarea name = 'message' ></textarea> <br>
      <button name = 'commentSubmit' type = 'submit'>Comment</button>
-      </form>";
+      </form> <br>"; 
+      echo "<br>";
+    } else {
+        echo "you need to login first in order to comment!";
+    }
        getComments($conn)
       ?>
     
