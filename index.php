@@ -20,7 +20,7 @@ include_once 'comment.inc.php';
     </video>
     <?php
 echo "<form action = '".setComments($conn)."'  method = 'post'>
-          <input type='hidden ' name = 'uid' value = 'Anonymous'>
+          <input type='hidden' name = 'uid' value = 'Anonymous'>
     <input type='hidden' name = 'date' value = '".date('Y-m-d H:i:s')."'><br>
     <textarea name = 'message' ></textarea> <br>
      <button name = 'commentSubmit' type = 'submit'>Comment</button>

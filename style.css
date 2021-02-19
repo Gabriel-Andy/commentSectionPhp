@@ -1,3 +1,7 @@
+body {
+    background-color:#ddd;
+}
+
 iframe {
   width: 853;
   height: 480px;
@@ -26,6 +30,7 @@ button {
   margin-bottom: 4px;
   background-color: #fff;
   border-radius: 4px;
+  position:relative;
 }
 .comment-box p {
 font-family:arial;
@@ -33,4 +38,20 @@ font-size:14px;
 line-height:16px;
 color:#282828;
 font-weight: 100;
+}
+
+.edit-form {
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+.edit-form button {
+    width:40px;
+    height: 2px;
+    color:#282828;
+    background:#fff;
+    opacity:0.7;
+}
+.edit-form button:hover {
+   opacity:1;
 }
