@@ -20,7 +20,7 @@ while($row = $result->fetch_assoc()){
     $result2 = $conn->query($sql2);
     if($row2 = $result2->fetch_assoc()) {
        echo "<div class ='comment-box'><p>";
-    echo $row['uid']."<br>";
+    echo $row2['uid']."<br>";
     echo $row['date']."<br>";
     echo nl2br($row['message']);
     echo "</p>
@@ -70,7 +70,7 @@ function deleteComments($conn){
      if(isset($_POST['loginSubmit'])){
      $uid = $_POST['uid'];
      $pwd = $_POST['pwd'];
-$sql = "SELECT * FROM user WHERE uid = '$uid' AND pwd = '$pwd'";
+$sql = "SELECT * FROM audience WHERE uid = '$uid' AND pwd = '$pwd'";
 $result = $conn->query($sql);
 if(mysqli_num_rows($result)> 0){
     if($row = $result->fetch_assoc()) {
