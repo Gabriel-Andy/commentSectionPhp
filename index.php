@@ -27,19 +27,21 @@ session_start();
     if (isset($_SESSION['id'])) {
         echo "you are logged in !";
     } else {
-        echo "you aren't logged !";
+        echo "you aren't logged in bro !";
     }
     ?>
     <br><br>
     <video width = "320"  height = "240" controls>
     <source src = "movie.mp4" type = "video/mp4">
     <source src = "movie.ogg" type = "video/ogg">
-    your browser doesn not support the video tag.
+    your browser doesn't not support the video tag.
     </video>
     <?php
-     if (isset($_SESSION['id'])) {
+  
+
+     if(isset($_SESSION['id']))  {
         echo "<form action = '".setComments($conn)."'  method = 'post'>
-          <input type='hidden' name = 'uid' value = 'Anonymous'>
+          <input type='hidden' name = 'uid' value = '".$_SESSION['id']."'>
     <input type='hidden' name = 'date' value = '".date('Y-m-d H:i:s')."'><br>
     <textarea name = 'message' ></textarea> <br>
      <button name = 'commentSubmit' type = 'submit'>Comment</button>
@@ -50,6 +52,7 @@ session_start();
     }
        getComments($conn)
       ?>
+      
     
 </body>
 </html>
