@@ -15,7 +15,11 @@ function setComments($conn) {
 $sql = "SELECT * FROM comments";
 $result = $conn->query($sql);
 while($row = $result->fetch_assoc()){
-    echo "<div class ='comment-box'><p>";
+    $id = $row['uid'];
+    $sql2 = "SELECT * FROM audience WHERE id = '$id'";
+    $result2 = $conn->query($sql2);
+    if($row2 = $result2->fetch_assoc()) {
+       echo "<div class ='comment-box'><p>";
     echo $row['uid']."<br>";
     echo $row['date']."<br>";
     echo nl2br($row['message']);
@@ -34,6 +38,7 @@ while($row = $result->fetch_assoc()){
       <button> Edit</button>
     </form>
      </div>";
+    }
 }
  }
 
