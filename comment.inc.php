@@ -106,7 +106,7 @@ if(mysqli_num_rows($result)> 0){
   if(isset($_POST['logoutSubmit'])){
       session_start();
       session_destroy();
-      header("Location: index.php");
+      header("Location: index.php?userlogout");
   }
 
  }
