@@ -64,7 +64,7 @@ while($row = $result->fetch_assoc()){
     $message = $_POST['message'];
     $sql = "UPDATE comments SET message = '$message' where cid = '$cid'";
     $result = $conn->query($sql);
-    header("Location: index.php?success=updatepost");
+    header("Location: index.php?success=update");
 
   }
    
