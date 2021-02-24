@@ -48,7 +48,7 @@ session_start();
       </form> <br>"; 
       echo "<br>";
     } else {
-        echo "you need to log in in order to comment git!";
+        echo "I would never go to school !";
     }
        getComments($conn)
       ?>
