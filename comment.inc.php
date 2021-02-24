@@ -89,7 +89,7 @@ $result = $conn->query($sql);
 if(mysqli_num_rows($result)> 0){
     if($row = $result->fetch_assoc()) {
         $_SESSION['id'] = $row['id'];
-        header("Location: index.php?loginsuccess");
+        header("Location: index.php?login=success");
         exit();
     }
 }else {
